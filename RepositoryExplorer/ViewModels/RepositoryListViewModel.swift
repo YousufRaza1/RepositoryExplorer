@@ -13,25 +13,23 @@ class RepositoryListViewModel: ObservableObject {
 
     nonisolated init() {
         Task {
-            await self.getRepos()
+            await self.getRepos(pageNumber: 1)
         }
     }
 
-    func getRepos() async {
+    func getRepos(pageNumber: Int) async {
         do {
             let data = try await DataSource.fetch(
                 api: EndpointCases.getAllProduct(
-                    page: 1,
+                    page: pageNumber,
                     perPage: 10,
                     sort: "updated",
                     order: "asc"
                 ),
                 type: RepositoryResponse.self
             )
-
-            if let repositorys = data.items {
-                self.repositorys = repositorys
-            }
+            let newReposotories = data.items ?? []
+            self.repositorys += newReposotories
 
         } catch {
             print(error.localizedDescription)
