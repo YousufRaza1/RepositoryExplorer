@@ -21,7 +21,7 @@ class RepositoryListViewModel: ObservableObject {
         repository: Repository = Repository(
             cache: DiskCache<RepositoryResponse>(
                 filename: "repository_list",
-                expirationInterval: 30
+                expirationInterval: 30 * 60
             )
         )
     ) {
@@ -30,7 +30,7 @@ class RepositoryListViewModel: ObservableObject {
     }
 
     func initDefault() {
-        if let sortingIndex = UserDefaults.standard.object(forKey: "sortingIndex" ) as? Int{
+        if let sortingIndex = UserDefaults.standard.object(forKey: "sortingIndex") as? Int {
             self.sortingIndex = sortingIndex
             print("init user default")
         } else {
