@@ -46,11 +46,15 @@ struct RepositoryListScreen: View {
                     }
 
                 case .success:
-                    ScrollView { 
+                    ScrollView {
                         VStack {
                             ForEach(viewModel.repositorys) { repo in
-                                RepoItemView(repo: repo)
-                                    .padding(.vertical, 1)
+                                NavigationLink {
+                                    RepoDetailsScreen(item: repo)
+                                } label: {
+                                    RepoItemView(repo: repo)
+                                        .padding(.vertical, 1)
+                                }
                             }
                         }
                         .padding(16)

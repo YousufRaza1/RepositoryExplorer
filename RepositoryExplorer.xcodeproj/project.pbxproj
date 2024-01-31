@@ -21,6 +21,7 @@
 		CB31050E2B696B200067AB31 /* ApiEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB31050D2B696B200067AB31 /* ApiEndPoints.swift */; };
 		CB3105122B69757B0067AB31 /* RepoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3105112B69757B0067AB31 /* RepoItemView.swift */; };
 		CB3BD5792B6A960500D9D330 /* UIStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3BD5782B6A960500D9D330 /* UIStateModel.swift */; };
+		CB3BD57C2B6ABE7900D9D330 /* RepoDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3BD57B2B6ABE7900D9D330 /* RepoDetailsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		CB31050D2B696B200067AB31 /* ApiEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndPoints.swift; sourceTree = "<group>"; };
 		CB3105112B69757B0067AB31 /* RepoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoItemView.swift; sourceTree = "<group>"; };
 		CB3BD5782B6A960500D9D330 /* UIStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateModel.swift; sourceTree = "<group>"; };
+		CB3BD57B2B6ABE7900D9D330 /* RepoDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		CB3105042B6955BC0067AB31 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CB3BD57A2B6ABE2F00D9D330 /* RepositoryDetailsScreen */,
 				CB31050F2B6974DE0067AB31 /* RepositoryListScreen */,
 			);
 			path = Views;
@@ -195,6 +198,14 @@
 				CB3105112B69757B0067AB31 /* RepoItemView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		CB3BD57A2B6ABE2F00D9D330 /* RepositoryDetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CB3BD57B2B6ABE7900D9D330 /* RepoDetailsScreen.swift */,
+			);
+			path = RepositoryDetailsScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +342,7 @@
 				CB3105082B6956FF0067AB31 /* RepositoryListViewModel.swift in Sources */,
 				CB31050E2B696B200067AB31 /* ApiEndPoints.swift in Sources */,
 				CB31050A2B6968480067AB31 /* RepositoryModel.swift in Sources */,
+				CB3BD57C2B6ABE7900D9D330 /* RepoDetailsScreen.swift in Sources */,
 				CB3104D92B694A520067AB31 /* RepositoryListScreen.swift in Sources */,
 				CB3BD5792B6A960500D9D330 /* UIStateModel.swift in Sources */,
 				CB3105122B69757B0067AB31 /* RepoItemView.swift in Sources */,

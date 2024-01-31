@@ -53,6 +53,7 @@ struct RepoItemView: View {
                 Text(repo.language ?? "Unknown")
             }
         }
+        .foregroundColor(.label)
         .padding()
         .background(Color.secondarySystemGroupedBackground)
         .cornerRadius(8)
