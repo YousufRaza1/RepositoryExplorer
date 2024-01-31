@@ -20,6 +20,7 @@
 		CB31050C2B696A7B0067AB31 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB31050B2B696A7B0067AB31 /* NetworkManager.swift */; };
 		CB31050E2B696B200067AB31 /* ApiEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB31050D2B696B200067AB31 /* ApiEndPoints.swift */; };
 		CB3105122B69757B0067AB31 /* RepoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3105112B69757B0067AB31 /* RepoItemView.swift */; };
+		CB3BD5792B6A960500D9D330 /* UIStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3BD5782B6A960500D9D330 /* UIStateModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		CB31050B2B696A7B0067AB31 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CB31050D2B696B200067AB31 /* ApiEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndPoints.swift; sourceTree = "<group>"; };
 		CB3105112B69757B0067AB31 /* RepoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoItemView.swift; sourceTree = "<group>"; };
+		CB3BD5782B6A960500D9D330 /* UIStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				CB3105092B6968480067AB31 /* RepositoryModel.swift */,
+				CB3BD5782B6A960500D9D330 /* UIStateModel.swift */,
 			);
 			name = Models;
 			path = ViewModels/Models;
@@ -329,6 +332,7 @@
 				CB31050E2B696B200067AB31 /* ApiEndPoints.swift in Sources */,
 				CB31050A2B6968480067AB31 /* RepositoryModel.swift in Sources */,
 				CB3104D92B694A520067AB31 /* RepositoryListScreen.swift in Sources */,
+				CB3BD5792B6A960500D9D330 /* UIStateModel.swift in Sources */,
 				CB3105122B69757B0067AB31 /* RepoItemView.swift in Sources */,
 				CB3105062B69561A0067AB31 /* Color+.swift in Sources */,
 				CB3104D72B694A520067AB31 /* RepositoryExplorerApp.swift in Sources */,

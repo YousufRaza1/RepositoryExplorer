@@ -10,6 +10,7 @@ import Foundation
 @MainActor
 class RepositoryListViewModel: ObservableObject {
     @Published var repositorys: [RepoItem] = []
+    @Published var state: UIState = .loading
 
     nonisolated init() {
         Task {
@@ -29,10 +30,17 @@ class RepositoryListViewModel: ObservableObject {
                 type: RepositoryResponse.self
             )
             let newReposotories = data.items ?? []
-            self.repositorys += newReposotories
+            repositorys.append(contentsOf: newReposotories)
+
+            state = .success
 
         } catch {
             print(error.localizedDescription)
+            state = .failure(error: error.localizedDescription)
+        }
+        
+        if repositorys.count == 0 {
+            state = .empty
         }
     }
 }

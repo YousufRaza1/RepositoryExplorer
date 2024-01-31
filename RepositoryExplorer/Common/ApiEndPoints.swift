@@ -1,9 +1,9 @@
 
 //
-//  ApiEndpoint.swift
-//  CodeForces
+//  NetworkManager.swift
+//  RepositoryExplorer
 //
-//  Created by Yousuf on 9/30/23.
+//  Created by Yousuf on 1/30/24.
 //
 
 import Foundation
