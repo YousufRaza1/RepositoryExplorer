@@ -14,20 +14,31 @@ class RepositoryListViewModel: ObservableObject {
     @Published var sortBy = SortBy.stars
     @Published var shortingProcess = SortingProcess.desc
 
-    nonisolated init() {}
+    let repository: Repository
+
+    nonisolated init(
+        repository: Repository = Repository(
+            cache: DiskCache<RepositoryResponse>(
+                filename: "repository_list",
+                expirationInterval: 3 * 60
+            )
+        )
+    ) {
+        self.repository = repository
+    }
 
     func getRepos(pageNumber: Int) async {
         do {
-            let data = try await DataSource.fetch(
-                api: EndpointCases.getAllProduct(
+            let data = try await repository.getRepositoryList(
+                for: .getAllProduct(
                     page: pageNumber,
                     perPage: 10,
                     sort: sortBy.rawValue,
                     order: shortingProcess.rawValue
-                ),
-                type: RepositoryResponse.self
+                )
             )
-            let newReposotories = data.items ?? []
+
+            let newReposotories = data?.items ?? []
             repositorys.append(contentsOf: newReposotories)
 
             state = .success

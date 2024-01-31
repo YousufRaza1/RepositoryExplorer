@@ -1,6 +1,5 @@
 
 //
-//  NetworkManager.swift
 //  RepositoryExplorer
 //
 //  Created by Yousuf on 1/30/24.
@@ -49,6 +48,16 @@ enum EndpointCases: Endpoint {
         }
     }
 
+    var keyForCache: String {
+        switch self {
+        case let .getAllProduct(page, perPage, _, _):
+            return "/search/repositories?q=iOS&page=\(page)&per_page=\(perPage)"
+
+        case .none:
+            return ""
+        }
+    }
+
     var path: String {
         switch self {
         case let .getAllProduct(page, perPage, sort, order):
@@ -67,7 +76,10 @@ enum EndpointCases: Endpoint {
     }
 }
 
-// enum Response<T: Codable> {
-//    case error(details: AFError)
-//    case success(data: T)
-// }
+enum HttpMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case delete = "Delete"
+    case patch = "Patch"
+    case put = "Put"
+}
