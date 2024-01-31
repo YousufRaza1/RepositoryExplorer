@@ -31,7 +31,7 @@ struct RepoItemView: View {
             HStack {
                 Text(ownerName)
                 Spacer()
-                Text(repo.pushedAt ?? "N/A")
+                Text(repo.getPushedAt(), style: .date)
             }
 
             Text(repo.name ?? "Unknown name")
@@ -40,6 +40,7 @@ struct RepoItemView: View {
 
             Text(repo.description ?? "Empty description")
                 .lineLimit(2)
+                .multilineTextAlignment(.leading)
 
             HStack {
                 Image(systemName: "star")

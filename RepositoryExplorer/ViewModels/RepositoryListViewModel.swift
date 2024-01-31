@@ -13,7 +13,7 @@ class RepositoryListViewModel: ObservableObject {
     @Published var state: UIState = .loading
     @Published var sortBy = SortBy.stars
     @Published var sortingProcess = SortingProcess.desc
-    @Published var sortingIndex = 1
+    @Published var sortingIndex: Int = 1
 
     let repository: Repository
 
@@ -21,12 +21,22 @@ class RepositoryListViewModel: ObservableObject {
         repository: Repository = Repository(
             cache: DiskCache<RepositoryResponse>(
                 filename: "repository_list",
-                expirationInterval: 3 * 60
+                expirationInterval: 30
             )
         )
     ) {
         self.repository = repository
         NetworkMonitor.shared.startMonitoring()
+    }
+
+    func initDefault() {
+        if let sortingIndex = UserDefaults.standard.object(forKey: "sortingIndex" ) as? Int{
+            self.sortingIndex = sortingIndex
+            print("init user default")
+        } else {
+            UserDefaults.standard.setValue(sortingIndex, forKey: "sortingIndex")
+            print("set newValue")
+        }
     }
 
     func getRepos(pageNumber: Int) async {
@@ -70,6 +80,9 @@ class RepositoryListViewModel: ObservableObject {
         } else {
             sortingIndex = 4
         }
+
+        UserDefaults.standard.setValue(sortingIndex, forKey: "sortingIndex")
+        print("set newValue")
     }
 
     func retry() async {

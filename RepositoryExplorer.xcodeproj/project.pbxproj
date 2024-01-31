@@ -28,6 +28,7 @@
 		CB3BD5852B6AC5FC00D9D330 /* CacheEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3BD5812B6AC5FC00D9D330 /* CacheEntry.swift */; };
 		CB3BD5872B6AC65800D9D330 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3BD5862B6AC65800D9D330 /* Repository.swift */; };
 		CB3BD5892B6AC66600D9D330 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3BD5882B6AC66600D9D330 /* NetworkMonitor.swift */; };
+		CB3BD58B2B6AE3A500D9D330 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3BD58A2B6AE3A500D9D330 /* DateFormat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		CB3BD5812B6AC5FC00D9D330 /* CacheEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheEntry.swift; sourceTree = "<group>"; };
 		CB3BD5862B6AC65800D9D330 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		CB3BD5882B6AC66600D9D330 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		CB3BD58A2B6AE3A500D9D330 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 				CB3105052B69561A0067AB31 /* Color+.swift */,
 				CB31050B2B696A7B0067AB31 /* NetworkManager.swift */,
 				CB3BD5882B6AC66600D9D330 /* NetworkMonitor.swift */,
+				CB3BD58A2B6AE3A500D9D330 /* DateFormat.swift */,
 				CB3BD5862B6AC65800D9D330 /* Repository.swift */,
 				CB31050D2B696B200067AB31 /* ApiEndPoints.swift */,
 			);
@@ -369,6 +372,7 @@
 				CB31050C2B696A7B0067AB31 /* NetworkManager.swift in Sources */,
 				CB3BD5872B6AC65800D9D330 /* Repository.swift in Sources */,
 				CB3105082B6956FF0067AB31 /* RepositoryListViewModel.swift in Sources */,
+				CB3BD58B2B6AE3A500D9D330 /* DateFormat.swift in Sources */,
 				CB31050E2B696B200067AB31 /* ApiEndPoints.swift in Sources */,
 				CB31050A2B6968480067AB31 /* RepositoryModel.swift in Sources */,
 				CB3BD5822B6AC5FC00D9D330 /* Cache.swift in Sources */,

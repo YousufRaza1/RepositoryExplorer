@@ -47,7 +47,7 @@ struct RepositoryListScreen: View {
 
                 case .success:
                     ScrollView {
-                        VStack {
+                        VStack(alignment: .leading) {
                             ForEach(viewModel.repositorys) { repo in
                                 NavigationLink {
                                     RepoDetailsScreen(item: repo)
@@ -57,6 +57,7 @@ struct RepositoryListScreen: View {
                                 }
                             }
                         }
+                        .multilineTextAlignment(.leading)
                         .padding(16)
                     }
                     .simultaneousGesture(
@@ -151,6 +152,7 @@ struct RepositoryListScreen: View {
                 }
             }
             .task {
+                viewModel.initDefault()
                 await viewModel.getRepos(pageNumber: 1)
             }
         }

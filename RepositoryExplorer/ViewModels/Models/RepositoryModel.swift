@@ -141,6 +141,14 @@ struct RepoItem: Codable, Identifiable {
         case watchers
         case defaultBranch = "default_branch"
     }
+
+    func getPushedAt() -> Date {
+        do {
+            return try pushedAt?.convertDateFromString() ?? .now
+        } catch {
+            return .now
+        }
+    }
 }
 
 // MARK: - Owner

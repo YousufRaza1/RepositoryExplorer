@@ -20,9 +20,12 @@ class Repository {
     func getRepositoryList(for endPoint: EndpointCases) async throws -> RepositoryResponse? {
         if isFirstTime {
             isFirstTime = false
-            try await cache.saveToDisk()
 
-            try await cache.loadFromDisk()
+            do {
+                try await cache.loadFromDisk()
+            } catch {
+                print(error.localizedDescription)
+            }
         }
 
         if Task.isCancelled { return nil }
