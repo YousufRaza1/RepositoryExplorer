@@ -83,53 +83,75 @@ struct RepositoryListScreen: View {
                             Task {
                                 await viewModel.sortRepos(
                                     sortBy: .stars,
-                                    shortingProcess: .asc
+                                    sortingProcess: .asc
                                 )
                             }
 
                         } label: {
-                            Text("Star Ascending")
+                            HStack {
+                                Text("Star Ascending")
+                                Spacer()
+                                if viewModel.sortingIndex == 1 {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
                         }
 
                         Button {
                             Task {
                                 await viewModel.sortRepos(
                                     sortBy: .stars,
-                                    shortingProcess: .desc
+                                    sortingProcess: .desc
                                 )
                             }
                         } label: {
-                            Text("Star Descending")
+                            HStack {
+                                Text("Star Descending")
+                                Spacer()
+                                if viewModel.sortingIndex == 2 {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
                         }
 
                         Button {
                             Task {
                                 await viewModel.sortRepos(
                                     sortBy: .updated,
-                                    shortingProcess: .asc
+                                    sortingProcess: .asc
                                 )
                             }
                         } label: {
-                            Text("Updated Ascending")
+                            HStack {
+                                Text("Updated Ascending")
+                                Spacer()
+                                if viewModel.sortingIndex == 3 {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
                         }
 
                         Button {
                             Task {
                                 await viewModel.sortRepos(
                                     sortBy: .updated,
-                                    shortingProcess: .desc
+                                    sortingProcess: .desc
                                 )
                             }
                         } label: {
-                            Text("Updated Descending")
+                            HStack {
+                                Text("Updated Descending")
+                                Spacer()
+                                if viewModel.sortingIndex == 4 {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
                         }
                     }
                 }
             }
-            .onAppear {
-                Task {
-                    await viewModel.getRepos(pageNumber: 1)
-                }
+            .task {
+                await viewModel.getRepos(pageNumber: 1)
             }
         }
     }

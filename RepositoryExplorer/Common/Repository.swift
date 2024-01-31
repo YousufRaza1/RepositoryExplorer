@@ -8,8 +8,8 @@
 import Foundation
 
 class Repository {
-    let cache: DiskCache<RepositoryResponse>
-    var isFirstTime = true
+    private let cache: DiskCache<RepositoryResponse>
+    private var isFirstTime = true
 
     init(
         cache: DiskCache<RepositoryResponse>
@@ -21,7 +21,7 @@ class Repository {
         if isFirstTime {
             isFirstTime = false
             try await cache.saveToDisk()
-            
+
             try await cache.loadFromDisk()
         }
 
@@ -53,12 +53,6 @@ class Repository {
     }
 
     private func shouldLoadFromNetwork() -> Bool {
-        let monitor = NetworkMonitor.shared
-
-        monitor.startMonitoring()
-        let isReachable = monitor.isReachable
-        monitor.stopMonitoring()
-
-        return isReachable
+        return NetworkMonitor.shared.isReachable
     }
 }
