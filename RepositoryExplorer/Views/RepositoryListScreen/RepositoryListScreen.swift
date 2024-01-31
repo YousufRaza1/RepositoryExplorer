@@ -16,16 +16,37 @@ struct RepositoryListScreen: View {
                 switch viewModel.state {
                 case .loading:
                     ProgressView()
-                    
+
                 case .failure(let error):
-                    Text("\(error), ")
-                        .padding()
-                    
+                    VStack {
+                        Text("\(error)")
+                            .padding()
+
+                        Button {
+                            Task {
+                                await viewModel.retry()
+                            }
+                        } label: {
+                            Text("Retry")
+                        }
+                    }
+                    .padding()
+
                 case .empty:
-                    Text("There are no repository right now")
-                    
+                    VStack {
+                        Text("There are no repository right now")
+
+                        Button {
+                            Task {
+                                await viewModel.retry()
+                            }
+                        } label: {
+                            Text("Retry sometime later")
+                        }
+                    }
+
                 case .success:
-                    ScrollView {
+                    ScrollView { 
                         VStack {
                             ForEach(viewModel.repositorys) { repo in
                                 RepoItemView(repo: repo)
@@ -47,6 +68,7 @@ struct RepositoryListScreen: View {
                     )
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .navigationTitle("Repository List")
             .navigationBarTitleDisplayMode(.inline)
             .background(Color.systemGroupedBackground)
@@ -54,29 +76,55 @@ struct RepositoryListScreen: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu("Sort by") {
                         Button {
-                            //
+                            Task {
+                                await viewModel.sortRepos(
+                                    sortBy: .stars,
+                                    shortingProcess: .asc
+                                )
+                            }
+
                         } label: {
-                            Text("Name asc")
+                            Text("Star Ascending")
                         }
 
                         Button {
-                            //
+                            Task {
+                                await viewModel.sortRepos(
+                                    sortBy: .stars,
+                                    shortingProcess: .desc
+                                )
+                            }
                         } label: {
-                            Text("Name desc")
+                            Text("Star Descending")
                         }
 
                         Button {
-                            //
+                            Task {
+                                await viewModel.sortRepos(
+                                    sortBy: .updated,
+                                    shortingProcess: .asc
+                                )
+                            }
                         } label: {
-                            Text("last update asc")
+                            Text("Updated Ascending")
                         }
 
                         Button {
-                            //
+                            Task {
+                                await viewModel.sortRepos(
+                                    sortBy: .updated,
+                                    shortingProcess: .desc
+                                )
+                            }
                         } label: {
-                            Text("last update desc")
+                            Text("Updated Descending")
                         }
                     }
+                }
+            }
+            .onAppear {
+                Task {
+                    await viewModel.getRepos(pageNumber: 1)
                 }
             }
         }

@@ -11,12 +11,10 @@ import Foundation
 class RepositoryListViewModel: ObservableObject {
     @Published var repositorys: [RepoItem] = []
     @Published var state: UIState = .loading
+    @Published var sortBy = SortBy.stars
+    @Published var shortingProcess = SortingProcess.desc
 
-    nonisolated init() {
-        Task {
-            await self.getRepos(pageNumber: 1)
-        }
-    }
+    nonisolated init() {}
 
     func getRepos(pageNumber: Int) async {
         do {
@@ -24,8 +22,8 @@ class RepositoryListViewModel: ObservableObject {
                 api: EndpointCases.getAllProduct(
                     page: pageNumber,
                     perPage: 10,
-                    sort: "updated",
-                    order: "asc"
+                    sort: sortBy.rawValue,
+                    order: shortingProcess.rawValue
                 ),
                 type: RepositoryResponse.self
             )
@@ -38,9 +36,32 @@ class RepositoryListViewModel: ObservableObject {
             print(error.localizedDescription)
             state = .failure(error: error.localizedDescription)
         }
-        
+
         if repositorys.count == 0 {
             state = .empty
         }
     }
+
+    func sortRepos(sortBy: SortBy, shortingProcess: SortingProcess) async {
+        self.sortBy = sortBy
+        self.shortingProcess = shortingProcess
+        repositorys.removeAll()
+        await getRepos(pageNumber: 1)
+    }
+
+    func retry() async {
+        state = .loading
+        repositorys.removeAll()
+        await getRepos(pageNumber: 1)
+    }
+}
+
+enum SortBy: String {
+    case stars
+    case updated
+}
+
+enum SortingProcess: String {
+    case asc
+    case desc
 }
