@@ -22,11 +22,26 @@
 - After 30 minutes cache data will be clear.
 
 
+![Alt text](https://drive.google.com/file/d/1-j4eq8WOxIRsludhbFfuT5nUxf0803mD/view?usp=drivesdk "Optional title")
+
+![Alt text](https://drive.google.com/file/d/11TXV4DANJL9gFJo3hh0THTjwebifLwrq/view?usp=drivesdk "Optional title")
+
+
+![Alt text](https://drive.google.com/file/d/1aiO4SSytIGJNmmUxbLNAl5PVymcKbQju/view?usp=drivesdk "Optional title")
+
+
 ## Tech
 
 
 - [Swift] - Most popular language for iOS apps.
 - [SwiftUI] - Awesome UI iOS apps UI bulider.
+
+- ## Architecture
+
+
+- [MVVM] - Model View ViewModel
+- [Repository] - Responsible for the data layer
+- [UIState] -  Responsible for the UI layer
 
 
 ## Challenge
