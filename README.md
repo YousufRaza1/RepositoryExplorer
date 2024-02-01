@@ -22,12 +22,12 @@
 - After 30 minutes cache data will be clear.
 
 
-![Alt text](https://drive.google.com/file/d/1-j4eq8WOxIRsludhbFfuT5nUxf0803mD/view?usp=drivesdk "Optional title")
+## ScreenShot
 
-![Alt text](https://drive.google.com/file/d/11TXV4DANJL9gFJo3hh0THTjwebifLwrq/view?usp=drivesdk "Optional title")
+[Screenshot1](https://drive.google.com/file/d/1-j4eq8WOxIRsludhbFfuT5nUxf0803mD/view?usp=drivesdk)
+[Screenshot2](https://drive.google.com/file/d/11TXV4DANJL9gFJo3hh0THTjwebifLwrq/view?usp=drivesdk)
+[Screenshot3](https://drive.google.com/file/d/1aiO4SSytIGJNmmUxbLNAl5PVymcKbQju/view?usp=drivesdk )
 
-
-![Alt text](https://drive.google.com/file/d/1aiO4SSytIGJNmmUxbLNAl5PVymcKbQju/view?usp=drivesdk "Optional title")
 
 
 ## Tech
