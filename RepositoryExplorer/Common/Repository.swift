@@ -28,14 +28,14 @@ class Repository {
             }
         }
 
-        if Task.isCancelled { return nil }
+//        if Task.isCancelled { return nil }
 
         let result: RepositoryResponse?
 
         if shouldLoadFromNetwork() {
             result = try await DataSource.fetch(api: endPoint, type: RepositoryResponse.self)
 
-            if Task.isCancelled { return nil }
+//            if Task.isCancelled { return nil }
 
             await cache.removeValue(forKey: endPoint.keyForCache)
             await cache.setValue(result, forKey: endPoint.keyForCache)

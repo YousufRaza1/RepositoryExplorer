@@ -14,6 +14,8 @@ class RepositoryListViewModel: ObservableObject {
     @Published var sortBy = SortBy.stars
     @Published var sortingProcess = SortingProcess.desc
     @Published var sortingIndex: Int = 1
+    @Published var pageNaumber = 1
+    @Published var loadedPages: [Int] = []
 
     let repository: Repository
 
@@ -21,7 +23,7 @@ class RepositoryListViewModel: ObservableObject {
         repository: Repository = Repository(
             cache: DiskCache<RepositoryResponse>(
                 filename: "repository_list",
-                expirationInterval: 30 * 60
+                expirationInterval: 30 * 60 // cache persistance 30 min
             )
         )
     ) {
@@ -39,25 +41,30 @@ class RepositoryListViewModel: ObservableObject {
         }
     }
 
-    func getRepos(pageNumber: Int) async {
-        do {
-            let data = try await repository.getRepositoryList(
-                for: .getAllProduct(
-                    page: pageNumber,
-                    perPage: 10,
-                    sort: sortBy.rawValue,
-                    order: sortingProcess.rawValue
+    func getRepos() async {
+        if !loadedPages.contains(pageNaumber) {
+            loadedPages.append(pageNaumber)
+            do {
+                let data = try await repository.getRepositoryList(
+                    for: .getAllProduct(
+                        page: pageNaumber,
+                        perPage: 10,
+                        sort: sortBy.rawValue,
+                        order: sortingProcess.rawValue
+                    )
                 )
-            )
 
-            let newReposotories = data?.items ?? []
-            repositorys.append(contentsOf: newReposotories)
+                let newReposotories = data?.items ?? []
+                repositorys.append(contentsOf: newReposotories)
 
-            state = .success
+                state = .success
+                pageNaumber += 1
 
-        } catch {
-            print(error.localizedDescription)
-            state = .failure(error: error.localizedDescription)
+            } catch {
+                loadedPages.removeAll { $0 == pageNaumber }
+                print(error.localizedDescription)
+                state = .failure(error: error.localizedDescription)
+            }
         }
 
         if repositorys.count == 0 {
@@ -69,7 +76,9 @@ class RepositoryListViewModel: ObservableObject {
         self.sortBy = sortBy
         self.sortingProcess = sortingProcess
         repositorys.removeAll()
-        await getRepos(pageNumber: 1)
+        pageNaumber = 1
+        loadedPages.removeAll()
+        await getRepos()
 
         if sortBy == .stars, sortingProcess == .asc {
             sortingIndex = 1
@@ -88,7 +97,9 @@ class RepositoryListViewModel: ObservableObject {
     func retry() async {
         state = .loading
         repositorys.removeAll()
-        await getRepos(pageNumber: 1)
+        pageNaumber = 1
+        loadedPages.removeAll()
+        await getRepos()
     }
 }
 

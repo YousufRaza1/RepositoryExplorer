@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB1F572A2B6B559A007BA997 /* github-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = CB1F57292B6B559A007BA997 /* github-mark.png */; };
 		CB3104D72B694A520067AB31 /* RepositoryExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3104D62B694A520067AB31 /* RepositoryExplorerApp.swift */; };
 		CB3104D92B694A520067AB31 /* RepositoryListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3104D82B694A520067AB31 /* RepositoryListScreen.swift */; };
 		CB3104DB2B694A540067AB31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3104DA2B694A540067AB31 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB1F57292B6B559A007BA997 /* github-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "github-mark.png"; sourceTree = "<group>"; };
 		CB3104D32B694A520067AB31 /* RepositoryExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepositoryExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3104D62B694A520067AB31 /* RepositoryExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryExplorerApp.swift; sourceTree = "<group>"; };
 		CB3104D82B694A520067AB31 /* RepositoryListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListScreen.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				CB3105042B6955BC0067AB31 /* Views */,
 				CB3104D62B694A520067AB31 /* RepositoryExplorerApp.swift */,
 				CB3104DA2B694A540067AB31 /* Assets.xcassets */,
+				CB1F57292B6B559A007BA997 /* github-mark.png */,
 				CB3104DC2B694A540067AB31 /* Preview Content */,
 			);
 			path = RepositoryExplorer;
@@ -341,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB1F572A2B6B559A007BA997 /* github-mark.png in Resources */,
 				CB3104DE2B694A540067AB31 /* Preview Assets.xcassets in Resources */,
 				CB3104DB2B694A540067AB31 /* Assets.xcassets in Resources */,
 			);

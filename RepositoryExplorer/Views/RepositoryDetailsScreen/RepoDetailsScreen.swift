@@ -14,12 +14,16 @@ struct RepoDetailsScreen: View {
         self.item = item
     }
     
+    private var isNetworkIsOK: Bool {
+        NetworkMonitor.shared.isReachable
+    }
+    
     var body: some View {
         ZStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 12) {
                     HStack(spacing: 6) {
-                        if let url = item.owner?.avatarURL {
+                        if let url = item.owner?.avatarURL, isNetworkIsOK {
                             AsyncImage(url: URL(string: url)) { image in
                                 image
                                     .resizable()

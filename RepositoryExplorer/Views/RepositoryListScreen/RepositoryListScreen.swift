@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RepositoryListScreen: View {
     @StateObject private var viewModel = RepositoryListViewModel()
-    @State var pageNumber = 1
     var body: some View {
         NavigationView {
             ZStack {
@@ -65,8 +64,7 @@ struct RepositoryListScreen: View {
                             let isScrollDown = $0.translation.height < 0
                             if isScrollDown {
                                 Task {
-                                    self.pageNumber += 1
-                                    await viewModel.getRepos(pageNumber: pageNumber)
+                                    await viewModel.getRepos()
                                 }
                             }
                         }
@@ -153,7 +151,7 @@ struct RepositoryListScreen: View {
             }
             .task {
                 viewModel.initDefault()
-                await viewModel.getRepos(pageNumber: 1)
+                await viewModel.getRepos()
             }
         }
     }

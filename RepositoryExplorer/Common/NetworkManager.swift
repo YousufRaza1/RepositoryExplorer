@@ -18,10 +18,11 @@ enum DataSource {
         switch response.statusCode {
         case 200 ... 299:
             let decodedData = try JSONDecoder().decode(type, from: data)
-            print(decodedData)
+           // print(decodedData)
 
             return decodedData
         default:
+            print(response)
             throw generateError(description: "A server error occured")
         }
     }
